@@ -15,10 +15,10 @@ namespace ElectronicDiary.Model
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class ks54Entities : DbContext
+    public partial class ks54Entities1 : DbContext
     {
-        public ks54Entities()
-            : base("name=ks54Entities")
+        public ks54Entities1()
+            : base("name=ks54Entities1")
         {
         }
     

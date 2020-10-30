@@ -26,6 +26,7 @@ namespace ElectronicDiary.Model
         public byte[] File { get; set; }
         public System.DateTime Date { get; set; }
     
+        public virtual Student Student { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Task> Tasks { get; set; }
     }

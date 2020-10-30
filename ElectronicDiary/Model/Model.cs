@@ -9,7 +9,7 @@ namespace ElectronicDiary.Model
 {
     class Model
     {
-        protected static ks54Entities context = new ks54Entities();
+        protected static ks54Entities1 context = new ks54Entities1(); 
 
         public static bool isStudent = false;  
 

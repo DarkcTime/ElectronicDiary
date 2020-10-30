@@ -9,38 +9,38 @@
           <Key>
             <PropertyRef Name="IdComment" />
           </Key>
-          <Property Name="IdComment" Type="int" Nullable="false" />
+          <Property Name="IdComment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdStudent" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
-          <Property Name="File" Type="varbinary(max)" Nullable="false" />
+          <Property Name="File" Type="varbinary(max)" />
           <Property Name="Date" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Genders">
           <Key>
             <PropertyRef Name="IdGender" />
           </Key>
-          <Property Name="IdGender" Type="int" Nullable="false" />
+          <Property Name="IdGender" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Groups">
           <Key>
             <PropertyRef Name="IdGroup" />
           </Key>
-          <Property Name="IdGroup" Type="int" Nullable="false" />
+          <Property Name="IdGroup" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Marks">
           <Key>
             <PropertyRef Name="IdMark" />
           </Key>
-          <Property Name="IdMark" Type="int" Nullable="false" />
+          <Property Name="IdMark" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Mark" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Students">
           <Key>
             <PropertyRef Name="IdStudent" />
           </Key>
-          <Property Name="IdStudent" Type="int" Nullable="false" />
+          <Property Name="IdStudent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
@@ -53,7 +53,7 @@
           <Key>
             <PropertyRef Name="SubjectId" />
           </Key>
-          <Property Name="SubjectId" Type="int" Nullable="false" />
+          <Property Name="SubjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -70,19 +70,19 @@
           <Key>
             <PropertyRef Name="IdTask" />
           </Key>
-          <Property Name="IdTask" Type="int" Nullable="false" />
+          <Property Name="IdTask" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
-          <Property Name="File" Type="varbinary(max)" Nullable="false" />
+          <Property Name="File" Type="varbinary(max)" />
           <Property Name="MarkId" Type="int" Nullable="false" />
           <Property Name="TeacherGroupId" Type="int" Nullable="false" />
-          <Property Name="CommentId" Type="int" Nullable="false" />
+          <Property Name="CommentId" Type="int" />
         </EntityType>
         <EntityType Name="TeacherGroups">
           <Key>
             <PropertyRef Name="IdTeacherGroup" />
           </Key>
-          <Property Name="IdTeacherGroup" Type="int" Nullable="false" />
+          <Property Name="IdTeacherGroup" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TeacherId" Type="int" Nullable="false" />
           <Property Name="GroupId" Type="int" Nullable="false" />
         </EntityType>
@@ -90,7 +90,7 @@
           <Key>
             <PropertyRef Name="IdTeacher" />
           </Key>
-          <Property Name="IdTeacher" Type="int" Nullable="false" />
+          <Property Name="IdTeacher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TeacherName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="SubjectId" Type="int" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -103,10 +103,22 @@
           <Key>
             <PropertyRef Name="IdTeacherSubject" />
           </Key>
-          <Property Name="IdTeacherSubject" Type="int" Nullable="false" />
+          <Property Name="IdTeacherSubject" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TeacherId" Type="int" Nullable="false" />
           <Property Name="SubjectId" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Comment_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="IdStudent" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Students_Genders">
           <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
           <End Role="Students" Type="Self.Students" Multiplicity="*" />
@@ -132,7 +144,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tasks_Comment">
-          <End Role="Comment" Type="Self.Comment" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="0..1" />
           <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Comment">
@@ -270,6 +282,10 @@
           <EntitySet Name="TeacherGroups" EntityType="Self.TeacherGroups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TeacherSubjects" EntityType="Self.TeacherSubjects" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Comment_Students" Association="Self.FK_Comment_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
           <AssociationSet Name="FK_Students_Genders" Association="Self.FK_Students_Genders">
             <End Role="Genders" EntitySet="Genders" />
             <End Role="Students" EntitySet="Students" />
@@ -320,18 +336,19 @@
           <Key>
             <PropertyRef Name="IdComment" />
           </Key>
-          <Property Name="IdComment" Type="Int32" Nullable="false" />
+          <Property Name="IdComment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdStudent" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="File" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="File" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Comment_Students" FromRole="Comment" ToRole="Students" />
           <NavigationProperty Name="Tasks" Relationship="Self.FK_Tasks_Comment" FromRole="Comment" ToRole="Tasks" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
             <PropertyRef Name="IdGender" />
           </Key>
-          <Property Name="IdGender" Type="Int32" Nullable="false" />
+          <Property Name="IdGender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Students_Genders" FromRole="Genders" ToRole="Students" />
           <NavigationProperty Name="Teachers" Relationship="Self.FK_Teachers_Genders" FromRole="Genders" ToRole="Teachers" />
@@ -340,7 +357,7 @@
           <Key>
             <PropertyRef Name="IdGroup" />
           </Key>
-          <Property Name="IdGroup" Type="Int32" Nullable="false" />
+          <Property Name="IdGroup" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Students_Groups" FromRole="Groups" ToRole="Students" />
           <NavigationProperty Name="TeacherGroups" Relationship="Self.FK_TeacherGroups_Groups" FromRole="Groups" ToRole="TeacherGroups" />
@@ -349,7 +366,7 @@
           <Key>
             <PropertyRef Name="IdMark" />
           </Key>
-          <Property Name="IdMark" Type="Int32" Nullable="false" />
+          <Property Name="IdMark" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Mark1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Tasks" Relationship="Self.FK_Tasks_Marks" FromRole="Marks" ToRole="Tasks" />
         </EntityType>
@@ -357,7 +374,7 @@
           <Key>
             <PropertyRef Name="IdStudent" />
           </Key>
-          <Property Name="IdStudent" Type="Int32" Nullable="false" />
+          <Property Name="IdStudent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -365,6 +382,7 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="GroupId" Type="Int32" Nullable="false" />
           <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_Students" FromRole="Students" ToRole="Comment" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Students_Genders" FromRole="Students" ToRole="Genders" />
           <NavigationProperty Name="Group" Relationship="Self.FK_Students_Groups" FromRole="Students" ToRole="Groups" />
         </EntityType>
@@ -372,7 +390,7 @@
           <Key>
             <PropertyRef Name="SubjectId" />
           </Key>
-          <Property Name="SubjectId" Type="Int32" Nullable="false" />
+          <Property Name="SubjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="TeacherSubjects" Relationship="Self.FK_TeacherSubjects_Subjects" FromRole="Subjects" ToRole="TeacherSubjects" />
         </EntityType>
@@ -390,13 +408,13 @@
           <Key>
             <PropertyRef Name="IdTask" />
           </Key>
-          <Property Name="IdTask" Type="Int32" Nullable="false" />
+          <Property Name="IdTask" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="File" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="File" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="MarkId" Type="Int32" Nullable="false" />
           <Property Name="TeacherGroupId" Type="Int32" Nullable="false" />
-          <Property Name="CommentId" Type="Int32" Nullable="false" />
+          <Property Name="CommentId" Type="Int32" />
           <NavigationProperty Name="Comment" Relationship="Self.FK_Tasks_Comment" FromRole="Tasks" ToRole="Comment" />
           <NavigationProperty Name="Mark" Relationship="Self.FK_Tasks_Marks" FromRole="Tasks" ToRole="Marks" />
           <NavigationProperty Name="TeacherGroup" Relationship="Self.FK_Tasks_TeacherGroups" FromRole="Tasks" ToRole="TeacherGroups" />
@@ -405,7 +423,7 @@
           <Key>
             <PropertyRef Name="IdTeacherGroup" />
           </Key>
-          <Property Name="IdTeacherGroup" Type="Int32" Nullable="false" />
+          <Property Name="IdTeacherGroup" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TeacherId" Type="Int32" Nullable="false" />
           <Property Name="GroupId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Group" Relationship="Self.FK_TeacherGroups_Groups" FromRole="TeacherGroups" ToRole="Groups" />
@@ -416,7 +434,7 @@
           <Key>
             <PropertyRef Name="IdTeacher" />
           </Key>
-          <Property Name="IdTeacher" Type="Int32" Nullable="false" />
+          <Property Name="IdTeacher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SubjectId" Type="Int32" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -431,15 +449,27 @@
           <Key>
             <PropertyRef Name="IdTeacherSubject" />
           </Key>
-          <Property Name="IdTeacherSubject" Type="Int32" Nullable="false" />
+          <Property Name="IdTeacherSubject" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TeacherId" Type="Int32" Nullable="false" />
           <Property Name="SubjectId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Subject" Relationship="Self.FK_TeacherSubjects_Subjects" FromRole="TeacherSubjects" ToRole="Subjects" />
           <NavigationProperty Name="TeacherGroups" Relationship="Self.FK_TeacherGroups_TeacherSubjects" FromRole="TeacherSubjects" ToRole="TeacherGroups" />
           <NavigationProperty Name="Teacher" Relationship="Self.FK_TeacherSubjects_Teachers" FromRole="TeacherSubjects" ToRole="Teachers" />
         </EntityType>
+        <Association Name="FK_Comment_Students">
+          <End Role="Students" Type="Self.Student" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="IdStudent" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Tasks_Comment">
-          <End Role="Comment" Type="Self.Comment" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="0..1" />
           <End Role="Tasks" Type="Self.Task" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Comment">
@@ -558,7 +588,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ks54Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ks54Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Comments" EntityType="Self.Comment" />
           <EntitySet Name="Genders" EntityType="Self.Gender" />
           <EntitySet Name="Groups" EntityType="Self.Group" />
@@ -570,6 +600,10 @@
           <EntitySet Name="TeacherGroups" EntityType="Self.TeacherGroup" />
           <EntitySet Name="Teachers" EntityType="Self.Teacher" />
           <EntitySet Name="TeacherSubjects" EntityType="Self.TeacherSubject" />
+          <AssociationSet Name="FK_Comment_Students" Association="Self.FK_Comment_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
           <AssociationSet Name="FK_Tasks_Comment" Association="Self.FK_Tasks_Comment">
             <End Role="Comment" EntitySet="Comments" />
             <End Role="Tasks" EntitySet="Tasks" />
@@ -657,7 +691,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ks54ModelStoreContainer" CdmEntityContainer="ks54Entities">
+        <EntityContainerMapping StorageEntityContainer="ks54ModelStoreContainer" CdmEntityContainer="ks54Entities1">
           <EntitySetMapping Name="Comments">
             <EntityTypeMapping TypeName="ks54Model.Comment">
               <MappingFragment StoreEntitySet="Comment">

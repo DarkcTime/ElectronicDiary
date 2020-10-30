@@ -20,7 +20,7 @@ namespace ElectronicDiary.Model
         public byte[] File { get; set; }
         public int MarkId { get; set; }
         public int TeacherGroupId { get; set; }
-        public int CommentId { get; set; }
+        public Nullable<int> CommentId { get; set; }
     
         public virtual Comment Comment { get; set; }
         public virtual Mark Mark { get; set; }

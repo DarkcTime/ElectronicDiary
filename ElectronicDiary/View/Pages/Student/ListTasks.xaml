@@ -27,7 +27,7 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn DisplayMemberBinding="{Binding Subject.Name}"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding TeacherSubject.Subject.Name}"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElectronicDiary"
         mc:Ignorable="d"
-        Title="Электронный журнал" Height="450" Width="800">
+        Title="Электронный журнал" Height="450" Width="800" Icon="/ElectronicDiary;component/Recource/ks54.png">
     <Grid>
         <Frame Name="MainFrame" NavigationUIVisibility="Hidden">
 

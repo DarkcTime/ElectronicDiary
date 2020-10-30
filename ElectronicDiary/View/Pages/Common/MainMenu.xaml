@@ -23,7 +23,7 @@
                 <Image Source="/ElectronicDiary;component/Recource/ks54.png"></Image>
                 <Button Grid.Column="2" 
                         Style="{StaticResource StyleButtonSmall}"
-                        Click="ExitClick">Выйти</Button>
+                        Click="User_Click">Выйти</Button>
             </Grid>
            
         </Grid>

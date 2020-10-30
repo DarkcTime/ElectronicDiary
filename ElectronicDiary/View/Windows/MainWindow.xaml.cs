@@ -23,8 +23,8 @@ namespace ElectronicDiary
         public MainWindow()
         {
             InitializeComponent();
-           // BackEnd.SharedClass.SetFrame(this.MainFrame, new View.Pages.Common.Auth());
-           BackEnd.SharedClass.SetFrame(this.MainFrame, new View.Pages.Teacher.Groups());
+            BackEnd.SharedClass.SetFrame(this.MainFrame, new View.Pages.Common.Auth());
+           //BackEnd.SharedClass.SetFrame(this.MainFrame, new View.Pages.Teacher.Groups());
         }
 
         public void SetTitle(string title)

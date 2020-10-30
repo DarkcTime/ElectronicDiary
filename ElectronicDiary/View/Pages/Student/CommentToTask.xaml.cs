@@ -16,17 +16,13 @@ using System.Windows.Shapes;
 namespace ElectronicDiary.View.Pages.Student
 {
     /// <summary>
-    /// Interaction logic for ListTasks.xaml
+    /// Interaction logic for CommentToTask.xaml
     /// </summary>
-    public partial class ListTasks : Page
+    public partial class CommentToTask : Page
     {
-        Model.StudentHelper student = new Model.StudentHelper(); 
-
-        public ListTasks()
+        public CommentToTask()
         {
             InitializeComponent();
-            this.LStSubject.ItemsSource = student.GetStudentSubjects();
-            this.LstGroup.ItemsSource = student.GetStudentTasks(student.GetTeacherSubject());
         }
     }
 }

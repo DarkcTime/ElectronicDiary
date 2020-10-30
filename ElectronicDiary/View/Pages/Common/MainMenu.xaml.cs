@@ -1,4 +1,6 @@
 ﻿using ElectronicDiary.BackEnd;
+using ElectronicDiary.View.Pages.Student;
+using ElectronicDiary.View.Pages.Teacher;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,20 @@ namespace ElectronicDiary.View.Pages.Common
         {
             InitializeComponent();
 
+            if (Model.Model.IsStudent())
+            {
+                this.ContentFrame.Content = new ListTasks();
+            }
+            else
+            {
+                this.ContentFrame.Content = new Groups();
+            }
+
+        }
+
+        private void User_Click(object sender, RoutedEventArgs e)
+        {
+            SharedClass.OpenNewPage(this, new Auth());
         }
     }
 }
