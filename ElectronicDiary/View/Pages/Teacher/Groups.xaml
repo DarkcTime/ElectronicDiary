@@ -49,7 +49,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
 
-                                    <Button Click="Button_Click" Width="100" Height="100"/>
+                                    <Button Click="Button_Click" Content="Выбрать "/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                             

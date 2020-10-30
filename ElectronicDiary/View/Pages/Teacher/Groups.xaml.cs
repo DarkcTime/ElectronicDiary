@@ -41,7 +41,7 @@ namespace ElectronicDiary.View.Pages.Teacher
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show((LstGroup.SelectedItem as Model.TeacherGroup).Group.Name);
+            BackEnd.SharedClass.OpenNewPage(this, new View.Pages.Teacher.ListTasksForTeacher(((sender as Button).DataContext as Model.TeacherGroup)));
         }
     }
 }
