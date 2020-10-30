@@ -34,13 +34,13 @@
                 <GroupBox 
                     Style="{StaticResource StyleGroupBoxTextSmall}" Header="Почта"
                     >
-                    <TextBox Style="{StaticResource StyleTextBoxSmall}" 
-                         Text="{Binding Path=User.Email}" 
-                         Template="{StaticResource TextBoxTemplate}"></TextBox>
+                    <TextBox Style="{StaticResource StyleTextBoxSmall}"
+                         Template="{StaticResource TextBoxTemplate}"
+                             Name="txtLogin"></TextBox>
                 </GroupBox>
                 <GroupBox  Grid.Row="1" Style="{StaticResource StyleGroupBoxTextSmall}" 
                            Header="Пароль">
-                    <TextBox Text="{Binding Path=User.Password}"
+                    <TextBox Name="txtPassword"
                              Style="{StaticResource StyleTextBoxSmall}"
                              Template="{StaticResource TextBoxTemplate}"></TextBox>
                 </GroupBox>

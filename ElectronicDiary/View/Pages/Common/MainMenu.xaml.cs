@@ -28,7 +28,7 @@ namespace ElectronicDiary.View.Pages.Common
 
         private void User_Click(object sender, RoutedEventArgs e)
         {
-            PopupUser.IsOpen = true;
+            
         }
 
         private void UserAccount_Click(object sender, RoutedEventArgs e)

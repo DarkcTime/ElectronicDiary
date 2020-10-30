@@ -8,7 +8,7 @@ namespace ElectronicDiary.Model
 {
     class TeacherHelper : Model
     {
-
+        public static Teacher Teacher { get; set; }
 
     }
 }

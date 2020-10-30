@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElectronicDiary.BackEnd;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,9 @@ namespace ElectronicDiary.View.Pages.Common
     /// </summary>
     public partial class Auth : Page
     {
+
+        Model.Model model = new Model.Model(); 
+
         public Auth()
         {
             InitializeComponent();
@@ -27,7 +31,15 @@ namespace ElectronicDiary.View.Pages.Common
 
         private void AuthClick(object sender, RoutedEventArgs e)
         {
+            /*
+            if (string.IsNullOrWhiteSpace(this.txtLogin.Text) || string.IsNullOrWhiteSpace(this.txtPassword.Text))
+            {
+                if () OpenNewWindowAndCloseThis(CloseWindow, new View.Areas.Users.MainWindow());
+                else MessageBoxWarning("Неправильный логин или пароль");
+            }
+            else SharedClass.MessageBoxWarning("Все поля должны быть заполнены");
             //SharedClass.OpenNewPage(this, new MainMenu());
+            */
         }
 
         private void CreateAccountClick(object sender, RoutedEventArgs e)
