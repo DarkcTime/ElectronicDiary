@@ -10,5 +10,20 @@ namespace ElectronicDiary.Model
     {
         public static Teacher Teacher { get; set; }
 
+        public List<Teacher> GetTeachers()
+        {
+            return context.Teachers.ToList();
+        }
+
+        public List<TeacherSubject> GetSubjects()
+        {
+            return context.TeacherSubjects.Where(i => i.TeacherId == Teacher.IdTeacher).ToList();
+        }
+
+        public List<TeacherGroup> GetTeacherGroups()
+        {
+            return context.TeacherGroups.Where(i => i.TeacherId == Teacher.IdTeacher).ToList();
+        }
+
     }
 }

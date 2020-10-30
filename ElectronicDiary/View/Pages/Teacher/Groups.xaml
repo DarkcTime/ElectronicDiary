@@ -25,20 +25,28 @@
         
         <ListView Grid.Row="1" 
             Name="LStSubject">
-            <GridView>
-                <GridView.Columns>
-                    <GridViewColumn DisplayMemberBinding="{Binding Name}"/>
-                </GridView.Columns>
-            </GridView>
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn DisplayMemberBinding="{Binding Subject.Name}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+
         </ListView>
 
         <ListView Grid.Row="1" Grid.Column="1"
             Name="LstGroup">
-            <GridView>
-                <GridView.Columns>
-                    <GridViewColumn DisplayMemberBinding="{Binding Name}"/>
-                </GridView.Columns>
-            </GridView>
+            <ListView.View>
+
+                <GridView>
+
+                    <GridView.Columns>
+                        <GridViewColumn DisplayMemberBinding="{Binding Group.Name}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+
         </ListView>
     </Grid>
 </Page>
