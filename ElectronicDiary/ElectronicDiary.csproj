@@ -80,6 +80,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Teacher\ListStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Teacher\ListTasksForTeacher.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +165,9 @@
     </Compile>
     <Compile Include="View\Pages\Teacher\Groups.xaml.cs">
       <DependentUpon>Groups.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Teacher\ListStudent.xaml.cs">
+      <DependentUpon>ListStudent.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\Teacher\ListTasksForTeacher.xaml.cs">
       <DependentUpon>ListTasksForTeacher.xaml</DependentUpon>

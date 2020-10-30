@@ -31,5 +31,10 @@ namespace ElectronicDiary.Model
             return context.TeacherGroups.Where(i => i.TeacherId == Teacher.IdTeacher && i.TeacherSubject.IdTeacherSubject == subject.IdTeacherSubject).ToList();
         }
 
+        public List<Task> GetTasks(TeacherGroup teacherGroup)
+        {
+            return context.Tasks.Where(i => i.TeacherGroupId == teacherGroup.IdTeacherGroup).ToList();
+        }
+
     }
 }

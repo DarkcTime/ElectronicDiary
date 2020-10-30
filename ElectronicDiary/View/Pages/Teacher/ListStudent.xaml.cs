@@ -16,20 +16,13 @@ using System.Windows.Shapes;
 namespace ElectronicDiary.View.Pages.Teacher
 {
     /// <summary>
-    /// Interaction logic for ListTasksForTeacher.xaml
+    /// Логика взаимодействия для ListStudent.xaml
     /// </summary>
-    public partial class ListTasksForTeacher : Page
+    public partial class ListStudent : Page
     {
-        Model.TeacherHelper TeacherHelper = new Model.TeacherHelper();
-        public ListTasksForTeacher(Model.TeacherGroup teacherGroup)
+        public ListStudent()
         {
             InitializeComponent();
-            LstTask.ItemsSource = TeacherHelper.GetTasks(teacherGroup);
-        }
-
-        private void Student_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
