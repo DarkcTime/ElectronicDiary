@@ -39,7 +39,7 @@ namespace ElectronicDiary.Model
         }
 
 
-        public bool IsStudent()
+        public static bool IsStudent()
         {
             return isStudent; 
         }

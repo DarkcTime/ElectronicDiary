@@ -24,6 +24,15 @@ namespace ElectronicDiary.View.Pages.Common
         public MainMenu()
         {
             InitializeComponent();
+
+            if (Model.Model.IsStudent())
+            {
+                SharedClass.OpenNewPage(this, new Student.ListTasks());
+            }
+            else
+            {
+                SharedClass.OpenNewPage(this, new Teacher.Groups());
+            }
             // BackEnd.SharedClass.SetFrame(this.ContentFrame, new ListUsers());
         }
 
