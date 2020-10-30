@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElectronicDiary.BackEnd;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,19 +27,9 @@ namespace ElectronicDiary.View.Pages.Common
             // BackEnd.SharedClass.SetFrame(this.ContentFrame, new ListUsers());
         }
 
-        private void User_Click(object sender, RoutedEventArgs e)
+        private void ExitClick(object sender, RoutedEventArgs e)
         {
-            
-        }
-
-        private void UserAccount_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void UserLogOut_Click(object sender, RoutedEventArgs e)
-        {
-
+            SharedClass.OpenNewPage(this, new Auth());    
         }
     }
 }

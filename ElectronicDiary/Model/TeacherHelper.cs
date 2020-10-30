@@ -13,6 +13,7 @@ namespace ElectronicDiary.Model
         public List<Teacher> GetTeachers()
         {
             return context.Teachers.ToList();
+            
         }
 
         public List<TeacherSubject> GetSubjects()

@@ -13,29 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ElectronicDiary
+namespace ElectronicDiary.View.Pages.Teacher
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ListTasksForTeacher.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ListTasksForTeacher : Page
     {
-        public MainWindow()
+        public ListTasksForTeacher()
         {
             InitializeComponent();
-            BackEnd.SharedClass.SetFrame(this.MainFrame, new View.Pages.Common.Auth());
-            //BackEnd.SharedClass.SetFrame(this.MainFrame, new View.Pages.Teacher.Groups());
         }
-
-        public void SetTitle(string title)
-        {
-
-        }
-
-        public static void SetSize(int height, int width)
-        {
-
-        }
-
     }
 }
