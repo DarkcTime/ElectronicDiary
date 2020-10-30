@@ -15,7 +15,7 @@ namespace ElectronicDiary.Model
             return context.Teachers.ToList();
         }
 
-        public List<TeacherSubject> GetSubjects()
+        public List<TeacherSubject> GetTeacherSubjects()
         {
             return context.TeacherSubjects.Where(i => i.TeacherId == Teacher.IdTeacher).ToList();
         }

@@ -20,9 +20,24 @@ namespace ElectronicDiary.View.Pages.Teacher
     /// </summary>
     public partial class Groups : Page
     {
+        Model.TeacherHelper TeacherHelper = new Model.TeacherHelper();
+
         public Groups()
         {
             InitializeComponent();
+            LStSubject.ItemsSource = TeacherHelper.GetTeacherSubjects();
+            LstGroup.ItemsSource = TeacherHelper.GetTeacherGroups();
+        }
+
+        private void LStSubject_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            MessageBox.Show((LStSubject.SelectedItem as Model.TeacherSubject).Subject.Name);
+        }
+
+        private void LstGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
