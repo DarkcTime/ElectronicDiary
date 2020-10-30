@@ -13,17 +13,17 @@
             <RowDefinition Height="0.15*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Background="Blue">
-            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Click="User_Click" Content="User"/>
-            <Popup StaysOpen="False" Name="PopupUser" Placement="Mouse">
-                <Grid>
-                    <StackPanel>
-                        <Button Content="Изменить" Click="UserAccount_Click"/>
-                        <Button Content="выйти" Click="UserLogOut_Click"/>
-                    </StackPanel>
-                </Grid>
-            </Popup>
-
+        <Grid >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.25*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/ElectronicDiary;component/Recource/ks54.png"></Image>
+                <Button Grid.Column="2" />
+            </Grid>
+           
         </Grid>
         <Frame Name="ContentFrame" NavigationUIVisibility="Hidden" Grid.Row="1">
 
