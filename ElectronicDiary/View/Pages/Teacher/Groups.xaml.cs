@@ -32,12 +32,16 @@ namespace ElectronicDiary.View.Pages.Teacher
         private void LStSubject_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             LstGroup.ItemsSource = TeacherHelper.GetTeacherGroups((LStSubject.SelectedItem as Model.TeacherSubject));
-            //MessageBox.Show((LStSubject.SelectedItem as Model.TeacherSubject).Subject.Name);
         }
 
         private void LstGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show((LstGroup.SelectedItem as Model.TeacherGroup).Group.Name);
         }
     }
 }

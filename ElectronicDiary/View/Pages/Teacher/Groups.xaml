@@ -45,6 +45,15 @@
 
                     <GridView.Columns>
                         <GridViewColumn DisplayMemberBinding="{Binding Group.Name}"/>
+                        <GridViewColumn>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <Button Click="Button_Click" Width="100" Height="100"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                            
+                        </GridViewColumn>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
