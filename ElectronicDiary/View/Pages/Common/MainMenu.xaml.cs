@@ -1,5 +1,4 @@
-﻿using ElectronicDiary.BackEnd;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,21 +23,22 @@ namespace ElectronicDiary.View.Pages.Common
         public MainMenu()
         {
             InitializeComponent();
-
-            if (Model.Model.IsStudent())
-            {
-                SharedClass.OpenNewPage(this, new Student.ListTasks());
-            }
-            else
-            {
-                SharedClass.OpenNewPage(this, new Teacher.Groups());
-            }
             // BackEnd.SharedClass.SetFrame(this.ContentFrame, new ListUsers());
         }
 
         private void ExitClick(object sender, RoutedEventArgs e)
         {
-            SharedClass.OpenNewPage(this, new Auth());    
+            
+        }
+
+        private void UserAccount_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UserLogOut_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

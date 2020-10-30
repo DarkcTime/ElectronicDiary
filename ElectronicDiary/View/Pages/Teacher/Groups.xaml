@@ -24,7 +24,8 @@
             Content="Группы"/>
         
         <ListView Grid.Row="1" 
-            Name="LStSubject">
+            Name="LStSubject"
+                  SelectionChanged="LStSubject_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
@@ -36,7 +37,8 @@
         </ListView>
 
         <ListView Grid.Row="1" Grid.Column="1"
-            Name="LstGroup">
+            Name="LstGroup"
+                  SelectionChanged="LstGroup_SelectionChanged">
             <ListView.View>
 
                 <GridView>

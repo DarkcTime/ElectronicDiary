@@ -8,7 +8,7 @@ namespace ElectronicDiary.Model
 {
     class TeacherHelper : Model
     {
-        public static Teacher Teacher { get; set; }
+        public static Teacher Teacher { get; set; } = new Teacher() { IdTeacher = 2 };
 
         public List<Teacher> GetTeachers()
         {
@@ -16,7 +16,7 @@ namespace ElectronicDiary.Model
             
         }
 
-        public List<TeacherSubject> GetSubjects()
+        public List<TeacherSubject> GetTeacherSubjects()
         {
             return context.TeacherSubjects.Where(i => i.TeacherId == Teacher.IdTeacher).ToList();
         }
@@ -24,6 +24,11 @@ namespace ElectronicDiary.Model
         public List<TeacherGroup> GetTeacherGroups()
         {
             return context.TeacherGroups.Where(i => i.TeacherId == Teacher.IdTeacher).ToList();
+        }
+
+        public List<TeacherGroup> GetTeacherGroups(TeacherSubject subject)
+        {
+            return context.TeacherGroups.Where(i => i.TeacherId == Teacher.IdTeacher && i.TeacherSubject.IdTeacherSubject == subject.IdTeacherSubject).ToList();
         }
 
     }
