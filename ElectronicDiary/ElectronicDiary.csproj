@@ -72,6 +72,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Student\ListTasks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Teacher\Groups.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +152,9 @@
     <Compile Include="View\Pages\Common\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\Student\ListTasks.xaml.cs">
+      <DependentUpon>ListTasks.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\Teacher\Groups.xaml.cs">
       <DependentUpon>Groups.xaml</DependentUpon>
     </Compile>
@@ -190,9 +197,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\Pages\Student\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Recource\ks54.png" />
   </ItemGroup>

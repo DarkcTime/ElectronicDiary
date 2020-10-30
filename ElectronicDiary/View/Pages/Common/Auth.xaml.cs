@@ -31,15 +31,14 @@ namespace ElectronicDiary.View.Pages.Common
 
         private void AuthClick(object sender, RoutedEventArgs e)
         {
-            /*
             if (string.IsNullOrWhiteSpace(this.txtLogin.Text) || string.IsNullOrWhiteSpace(this.txtPassword.Text))
             {
-                if () OpenNewWindowAndCloseThis(CloseWindow, new View.Areas.Users.MainWindow());
-                else MessageBoxWarning("Неправильный логин или пароль");
+                if (model.IsAuth(this.txtLogin.Text, this.txtPassword.Text)) SharedClass.OpenNewPage(this, new MainMenu());
+                else SharedClass.MessageBoxWarning("Неправильный логин или пароль");
             }
             else SharedClass.MessageBoxWarning("Все поля должны быть заполнены");
-            //SharedClass.OpenNewPage(this, new MainMenu());
-            */
+
+            
         }
 
         private void CreateAccountClick(object sender, RoutedEventArgs e)

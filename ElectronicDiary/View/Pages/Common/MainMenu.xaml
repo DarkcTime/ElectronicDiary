@@ -21,7 +21,9 @@
                     <ColumnDefinition Width="0.25*"/>
                 </Grid.ColumnDefinitions>
                 <Image Source="/ElectronicDiary;component/Recource/ks54.png"></Image>
-                <Button Grid.Column="2" />
+                <Button Grid.Column="2" 
+                        Style="{StaticResource StyleButtonSmall}"
+                        Click="ExitClick">Выйти</Button>
             </Grid>
            
         </Grid>
