@@ -23,7 +23,7 @@ namespace ElectronicDiary.Model
 
         public List<Task> GetStudentTasks(TeacherSubject teacherSubject)
         {
-            return context.Tasks.Where(i => i.TeacherGroup.TeacherSubject.TeacherId == teacherSubject.TeacherId).ToList();
+            return context.Tasks.Where(b => b.TeacherGroup.TeacherSubject.IdTeacherSubject == teacherSubject.IdTeacherSubject).ToList();
         }
 
 

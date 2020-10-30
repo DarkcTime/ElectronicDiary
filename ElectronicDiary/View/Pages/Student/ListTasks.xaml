@@ -37,11 +37,9 @@
         <ListView Grid.Row="1" Grid.Column="1"
             Name="LstGroup">
             <ListView.View>
-
                 <GridView>
-
                     <GridView.Columns>
-                        <GridViewColumn DisplayMemberBinding="{Binding Tasks.Name}"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
