@@ -32,7 +32,6 @@ namespace ElectronicDiary.Model
                 TeacherHelper.Teacher = teacher.FirstOrDefault();
                 return true;
 
-
             }
 
             return false;

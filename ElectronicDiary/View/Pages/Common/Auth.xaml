@@ -32,7 +32,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <GroupBox 
-                    Style="{StaticResource StyleGroupBoxTextSmall}" Header="Почта"
+                    Style="{StaticResource StyleGroupBoxTextSmall}" Header="Логин"
                     >
                     <TextBox Style="{StaticResource StyleTextBoxSmall}"
                          Template="{StaticResource TextBoxTemplate}"
@@ -61,10 +61,9 @@
                         Template="{StaticResource ButtonTemplate}"
                         Grid.Column="1"
                         Click="CreateAccountClick"
+                        Content="Закрыть"
                         >
-                    <Button.Content>
-                        <TextBlock FontSize="14">Создать аккаунт</TextBlock>
-                    </Button.Content>
+                
                 </Button>
 
             </Grid>

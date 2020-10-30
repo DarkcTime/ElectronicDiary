@@ -148,6 +148,7 @@
     <Compile Include="Model\Task.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\TasksHelper.cs" />
     <Compile Include="Model\Teacher.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>

@@ -27,7 +27,7 @@
             </Grid>
            
         </Grid>
-        <Frame Name="ContentFrame" NavigationUIVisibility="Hidden" Grid.Row="1">
+        <Frame Name="ContentFrame" Grid.Row="1">
 
         </Frame>
     </Grid>
