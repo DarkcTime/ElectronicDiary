@@ -26,7 +26,7 @@ namespace ElectronicDiary.View.Pages.Common
             // BackEnd.SharedClass.SetFrame(this.ContentFrame, new ListUsers());
         }
 
-        private void User_Click(object sender, RoutedEventArgs e)
+        private void ExitClick(object sender, RoutedEventArgs e)
         {
             
         }

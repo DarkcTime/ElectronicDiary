@@ -31,8 +31,8 @@ namespace ElectronicDiary.View.Pages.Teacher
 
         private void LStSubject_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-            MessageBox.Show((LStSubject.SelectedItem as Model.TeacherSubject).Subject.Name);
+            LstGroup.ItemsSource = TeacherHelper.GetTeacherGroups((LStSubject.SelectedItem as Model.TeacherSubject));
+            //MessageBox.Show((LStSubject.SelectedItem as Model.TeacherSubject).Subject.Name);
         }
 
         private void LstGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
