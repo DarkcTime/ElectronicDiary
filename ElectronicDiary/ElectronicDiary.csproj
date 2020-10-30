@@ -63,6 +63,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\Teacher\Groups.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,6 +81,9 @@
     </Compile>
     <Compile Include="View\Pages\Common\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Teacher\Groups.xaml.cs">
+      <DependentUpon>Groups.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -112,7 +119,6 @@
   <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="View\Pages\Student\" />
-    <Folder Include="View\Pages\Teacher\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Recource\ks54.png" />
