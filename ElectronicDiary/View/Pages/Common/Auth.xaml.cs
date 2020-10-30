@@ -13,29 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ElectronicDiary
+namespace ElectronicDiary.View.Pages.Common
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для Auth.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Auth : Page
     {
-        public MainWindow()
+        public Auth()
         {
             InitializeComponent();
-            BackEnd.SharedClass.SetFrame(this.MainFrame, new View.Pages.Common.Auth());
-
         }
 
-        public void SetTitle(string title)
+        private void AuthClick(object sender, RoutedEventArgs e)
         {
-
+            //SharedClass.OpenNewPage(this, new MainMenu());
         }
 
-        public static void SetSize(int height, int width)
+        private void CreateAccountClick(object sender, RoutedEventArgs e)
         {
-
+            //SharedClass.OpenNewPage(this, new CreateAccount());
         }
-
     }
 }
